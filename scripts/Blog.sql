@@ -12,7 +12,7 @@ GO
 -- DROP TABLE [Tag]
 -- DROP TABLE [PostTag]
 
-CREATE TABLE [User] (
+CREATE TABLE [UserBlog] (
     [Id] INT NOT NULL IDENTITY(1, 1),
     [Name] NVARCHAR(80) NOT NULL,
     [Email] VARCHAR(200) NOT NULL,
@@ -21,12 +21,12 @@ CREATE TABLE [User] (
     [Image] VARCHAR(2000) NOT NULL,
     [Slug] VARCHAR(80) NOT NULL,
 
-    CONSTRAINT [PK_User] PRIMARY KEY([Id]),
-    CONSTRAINT [UQ_User_Email] UNIQUE([Email]),
-    CONSTRAINT [UQ_User_Slug] UNIQUE([Slug])
+    CONSTRAINT [PK_UserBlog] PRIMARY KEY([Id]),
+    CONSTRAINT [UQ_UserBlog_Email] UNIQUE([Email]),
+    CONSTRAINT [UQ_UserBlog_Slug] UNIQUE([Slug])
 )
-CREATE NONCLUSTERED INDEX [IX_User_Email] ON [User]([Email])
-CREATE NONCLUSTERED INDEX [IX_User_Slug] ON [User]([Slug])
+CREATE NONCLUSTERED INDEX [IX_UserBlog_Email] ON [UserBlog]([Email])
+CREATE NONCLUSTERED INDEX [IX_UserBlog_Slug] ON  [UserBlog]([Slug])
 
 CREATE TABLE [Role] (
     [Id] INT NOT NULL IDENTITY(1, 1),
@@ -68,7 +68,7 @@ CREATE TABLE [Post] (
 
     CONSTRAINT [PK_Post] PRIMARY KEY([Id]),
     CONSTRAINT [FK_Post_Category] FOREIGN KEY([CategoryId]) REFERENCES [Category]([Id]),
-    CONSTRAINT [FK_Post_Author] FOREIGN KEY([AuthorId]) REFERENCES [User]([Id]),
+    CONSTRAINT [FK_Post_Author] FOREIGN KEY([AuthorId]) REFERENCES [UserBlog]([Id]),
     CONSTRAINT [UQ_Post_Slug] UNIQUE([Slug])
 )
 CREATE NONCLUSTERED INDEX [IX_Post_Slug] ON [Post]([Slug])
