@@ -1,4 +1,6 @@
-﻿namespace Blog.Models
+﻿using System.Collections.Generic;
+
+namespace Blog.Models
 {
     public class Category
     {
@@ -7,5 +9,7 @@
         public string Name { get; set; }
 
         public string Slug { get; set; }
+
+        public IList<Post> Post { get; set; }
     }
 }
