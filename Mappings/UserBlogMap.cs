@@ -33,6 +33,11 @@ namespace Blog.Mappings
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(80);
 
+            builder.Property(ub=>ub.GitHub)
+                .HasColumnName("GitHub")
+                .HasColumnType("VARCHAR")
+                .HasMaxLength(150); 
+
             // Indices
             builder.HasIndex(ub => ub.Slug, "IX_User_Slug")
                 .IsUnique();

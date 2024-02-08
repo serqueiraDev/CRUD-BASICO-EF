@@ -32,8 +32,8 @@ namespace Blog.Mappings
                 .HasMaxLength(80);
 
             // Indíces
-            //builder.HasIndex(c => c.Slug, "IX_CATEGORY_Slug")
-            //    .IsUnique();
+            builder.HasIndex(c => c.Slug, "IX_CATEGORY_Slug")
+                .IsUnique();
         }
     }
 }

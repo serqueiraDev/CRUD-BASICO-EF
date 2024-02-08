@@ -1,6 +1,5 @@
 ﻿using Blog.Data;
 using Blog.Models;
-using System.Linq;
 
 namespace Blog
 {
@@ -8,36 +7,20 @@ namespace Blog
     {
         private static void Main(string[] args)
         {
-            using var context = new BlogDataContext();
+            //var user = new UserBlog() { 
+            //    Name = "João da Silva",
+            //    Email = "js@teste.com",
+            //    PasswordHash = "12345678",
+            //    Image = "https://js.io",
+            //    Slug = "DOT NET",
+            //    Bio = "Sou um dev que só causa bug.",
+            //    GitHub = "https://github.com",
+            //};
 
-            //context.UserBlogs.Add(new UserBlog() { 
-            //    Bio = "Dev FullCycle",
-            //    Email = "maine@maine.com",
-            //    Image = "https://maine.io",
-            //    Name = "Maine Serqueira",
-            //    PasswordHash = "123456",
-            //    Slug = "maine-serqueira"
-            //});
+            //using var context = new BlogDataContext();
 
-            var user = context.UserBlogs.FirstOrDefault(x => x.Id == 2);
-
-            context.Posts.Add(new Post()
-            {
-                Author = user,
-                Category = new Category()
-                {
-                    Name = "FrontEnd",
-                    Slug = "frontend"
-                },
-                Body = "Meu ARTIGO",
-                Title = "Meu artigo",
-                Slug = "meu-artigo",
-                Summary = "Neste artigo, vamos conferir...",
-                CreateDate = System.DateTime.Now,
-
-            });
-
-            context.SaveChanges();
+            //context.UserBlogs.Add(user);
+            //context.SaveChanges();
         }
     }
 }
